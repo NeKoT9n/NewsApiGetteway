@@ -1,0 +1,21 @@
+﻿services:
+  news-api-gateway:
+    build:
+      context: .
+      dockerfile: NewsApiGateway/Dockerfile
+    container_name: api-gateway
+    ports:
+      - "5000:8080"
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=https://+:8080;
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=3454570145
+    volumes:
+      - D:/_Проекты/NewsApiGateway/aspnetapp.pfx:/https/aspnetapp.pfx:ro
+    networks:
+      - news-shared-net
+
+networks:
+  news-shared-net:
+    external: true

@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  news-api-gateway:
+    build:
+      context: "D:\\_Проекты\\Back\\NewsApiGateway"
+      dockerfile: "NewsApiGateway/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net10.0/NewsApiGateway.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "newsapigateway:dev"
+    ports: []
+    volumes:
+    - "D:\\_Проекты\\Back\\NewsApiGateway\\NewsApiGateway:/app:rw"
+    - "D:\\_Проекты\\Back\\NewsApiGateway:/src:rw"
+    - "C:\\Users\\user\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"
